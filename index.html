@@ -78,6 +78,16 @@
       display: inline-block;
     }
 
+    /* ----- BUTTONS CONTAINER ----- */
+    .buttons-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px; /* Space between buttons */
+      margin: 20px 0;
+    }
+
     /* ----- BUY BUTTON ----- */
     .buy-button {
       background: linear-gradient(45deg, #00bfff, #1e90ff);
@@ -88,7 +98,6 @@
       font-weight: bold;
       cursor: pointer;
       border-radius: 10px;
-      margin: 20px 0;
       transition: all 0.3s ease;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
       box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
@@ -96,6 +105,7 @@
       position: relative;
       overflow: hidden;
       display: inline-block;
+      text-decoration: none; /* Ensure link styles do not interfere */
     }
     .buy-button:before {
       content: '';
@@ -135,7 +145,6 @@
       font-weight: bold;
       cursor: pointer;
       border-radius: 10px;
-      margin: 20px 10px 20px 0; /* Added right margin for spacing */
       transition: all 0.3s ease;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
       box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
@@ -281,8 +290,13 @@
       }
       .generate-button, .buy-button {
         padding: 12px 20px;
-        margin: 15px 5px 15px 0; /* Adjusted margins for spacing */
+        margin: 15px 0; /* Adjusted margins for vertical stacking */
         font-size: 14px;
+        width: 100%; /* Full width on mobile */
+      }
+      .buttons-container {
+        flex-direction: column;
+        gap: 15px; /* Reduced gap for mobile */
       }
       .social-links a {
         font-size: 14px;
@@ -320,13 +334,19 @@
       </a>
     </div>
 
-    <!-- BUY BUTTON & GENERATE BUTTON -->
-    <a href="https://pump.fun/coin/6FPY8JaRXzmGLtQD9z8586nCR1JLDxe9r1wqasRhewoC" 
-       target="_blank" 
-       class="buy-button">
-      BUY $FAXIMUS NOW
-    </a>
-    <button class="generate-button" id="generateButton">GENERATE $FAXIMUS BETA</button>
+    <!-- BUTTONS CONTAINER -->
+    <div class="buttons-container">
+      <!-- BUY BUTTON -->
+      <a href="https://pump.fun/coin/6FPY8JaRXzmGLtQD9z8586nCR1JLDxe9r1wqasRhewoC" 
+         target="_blank" 
+         class="buy-button">
+        BUY $FAXIMUS NOW
+      </a>
+      <!-- GENERATE BUTTON -->
+      <button class="generate-button" id="generateButton">GENERATE $FAXIMUS BETA</button>
+    </div>
+    
+    <!-- TOKEN COUNTER -->
     <div id="tokenCounter" class="token-counter">$FAXIMUS Generated: 0</div>
 
     <!-- TOKEN CONTRACT SECTION -->
@@ -449,10 +469,10 @@
       // Determine the click or center position
       const clickX = e.type === 'click' 
         ? e.pageX 
-        : generateButton.getBoundingClientRect().left + (generateButton.offsetWidth / 2);
+        : generateButton.getBoundingClientRect().left + (generateButton.offsetWidth / 2) + window.scrollX;
       const clickY = e.type === 'click' 
         ? e.pageY 
-        : generateButton.getBoundingClientRect().top + (generateButton.offsetHeight / 2);
+        : generateButton.getBoundingClientRect().top + (generateButton.offsetHeight / 2) + window.scrollY;
 
       // Generate 10 small circles around the click
       for (let i = 0; i < particles; i++) {
