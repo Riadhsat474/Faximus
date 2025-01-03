@@ -281,9 +281,21 @@
     <!-- TOKEN CONTRACT SECTION -->
     <div class="token-contract">
       <h3>Save Your Generated Tokens</h3>
-      <input type="text" class="wallet-input" id="walletAddress" placeholder="Enter your wallet address">
-      <button class="save-button" id="saveTokens">Save Tokens</button>
-      <p class="coming-soon">Feature coming soon! 🚀</p>
+      <!-- Form Starts Here -->
+      <form id="saveTokensForm">
+        <input 
+          type="text" 
+          class="wallet-input" 
+          id="walletAddress" 
+          name="walletAddress"
+          placeholder="Enter your wallet address" 
+          required 
+          pattern="^[1-9A-HJ-NP-Za-km-z]{43,44}$" 
+          title="Solana wallet address must be exactly 43 or 44 Base58 characters long">
+        <button type="submit" class="save-button" id="saveTokens">Save Tokens</button>
+        <p class="coming-soon">Feature coming soon! 🚀</p>
+      </form>
+      <!-- Form Ends Here -->
     </div>
 
     <!-- DESCRIPTION SECTION -->
@@ -335,7 +347,7 @@
     const pepe = document.getElementById('pepe');
     const counter = document.getElementById('tokenCounter');
     const generateButton = document.getElementById('generateButton');
-    const saveTokensButton = document.getElementById('saveTokens');
+    const saveTokensForm = document.getElementById('saveTokensForm');
     const walletInput = document.getElementById('walletAddress');
 
     // ----- GENERATION FUNCTION -----
@@ -356,18 +368,23 @@
       }, 2000);
     }
 
-    // ----- SAVE TOKENS BUTTON -----
-    saveTokensButton.addEventListener('click', () => {
+    // ----- SAVE TOKENS FORM SUBMISSION -----
+    saveTokensForm.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent default form submission
+
       const wallet = walletInput.value.trim();
-      if (wallet) {
-        alert(
-          'Token saving feature coming soon! 🚀\n' +
-          'Wallet: ' + wallet + '\n' +
-          'Tokens: ' + tokenCount.toFixed(3)
-        );
-      } else {
-        alert('Please enter a wallet address');
-      }
+
+      // Since HTML5 validation has already been performed,
+      // we can safely assume the input is valid at this point.
+
+      alert(
+        'Address saved successfully! 🚀\n' +
+        'Wallet: ' + wallet + '\n' +
+        'Tokens: ' + tokenCount.toFixed(3)
+      );
+
+      // Optionally, reset the form
+      saveTokensForm.reset();
     });
 
     // ----- ADD EVENT LISTENERS -----
@@ -397,6 +414,7 @@
         particle.style.background = '#ffd700';
         particle.style.borderRadius = '50%';
         particle.style.pointerEvents = 'none';
+        particle.style.opacity = '1';
         document.body.appendChild(particle);
 
         // Spread them in a circle (360 / 10 = 36° each)
@@ -417,7 +435,7 @@
           particle.style.top = posY + 'px';
 
           // Decrease opacity by 0.02 each frame
-          particle.style.opacity = parseFloat(particle.style.opacity || 1) - 0.02;
+          particle.style.opacity = parseFloat(particle.style.opacity) - 0.02;
 
           // If still visible, keep animating
           if (particle.style.opacity > 0) {
