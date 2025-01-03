@@ -1,298 +1,374 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ReviveSafeMoon - The 36 Hour Revival Event</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Space Grotesk', sans-serif;
-    }
+<html><head><base href="/" />
+<title>Pepe Faximus - The Emperor of Meme Coins</title>
+<style>
+  .title {
+    font-size: 24px;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(255, 68, 68, 0.5);
+    margin: 20px 0;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: -webkit-linear-gradient(45deg, #ffd700, #ff4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a0f0f;
+    font-family: Arial, sans-serif; 
+    color: #ffd700;
+    text-align: center;
+  }
 
-    body {
-      background: #0a0a1f;
-      color: #fff;
-      line-height: 1.6;
-    }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(45deg, #0a0a1f, #1a1a3f);
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
+  .logo {
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: relative;
+    border-radius: 10px;
+  }
 
-    .stars {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-    }
+  .logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ffd700;
+  }
 
-    .star {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 1s infinite;
-    }
+  .logo:active {
+    transform: scale(0.95);
+  }
 
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
-    }
+  .social-links {
+    margin: 20px 0;
+  }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+  .social-links a {
+    margin: 0 15px;
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 18px; 
+    transition: color 0.3s;
+    padding: 10px 20px;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    background: rgba(255, 215, 0, 0.1);
+    font-weight: bold;
+  }
 
-    .logo-container {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+  .social-links a:hover {
+    color: #ff4444;
+    background: rgba(255, 215, 0, 0.2);
+    box-shadow: 0 0 15px #ffd700;
+  }
 
-    .logo {
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-      animation: float 6s ease-in-out infinite;
-    }
+  .description {
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    line-height: 1.6;
+    text-align: left;
+    border: 2px solid #ffd700;
+    font-size: 16px; 
+  }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
+  .token-counter {
+    font-size: 22px;
+    color: #ff4444;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: bold;
+  }
 
-    .countdown {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 15px;
-      text-align: center;
-      margin: 2rem 0;
-      backdrop-filter: blur(10px);
-    }
+  .pixel-border {
+    border: 4px solid #ffd700;
+    padding: 20px;
+    image-rendering: pixelated;
+  }
 
-    .timer {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #00ff88;
-    }
+  @keyframes generate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
 
-    .content {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
-      border-radius: 15px;
-      margin: 2rem 0;
-      backdrop-filter: blur(5px);
-    }
+  .generating {
+    animation: generate 1s ease-in-out infinite, glow 2s ease-in-out infinite;
+  }
 
-    h1 {
-      font-size: 3.5rem;
-      background: linear-gradient(45deg, #00ff88, #00ccff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-    }
+  @keyframes glow {
+    0% { box-shadow: 0 0 5px #ffd700; }
+    50% { box-shadow: 0 0 20px #ffd700, 0 0 30px #ff4444; }
+    100% { box-shadow: 0 0 5px #ffd700; }
+  }
 
-    h2 {
-      color: #00ff88;
-      margin: 1.5rem 0;
-    }
+  .generate-button {
+    background: linear-gradient(45deg, #ffd700, #ff8c00);
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    border: 2px solid #ffd700;
+    position: relative;
+    overflow: hidden;
+  }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
+  .generate-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: 0.5s;
+  }
 
-    .feature-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1.5rem;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
+  .generate-button:hover {
+    background: linear-gradient(45deg, #ff8c00, #ffd700);
+    transform: scale(1.05);
+    box-shadow: 0 7px 20px rgba(255, 215, 0, 0.5);
+  }
 
-    .feature-card:hover {
-      transform: translateY(-5px);
-    }
+  .generate-button:hover:before {
+    left: 100%;
+  }
 
-    .cta-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: linear-gradient(45deg, #00ff88, #00ccff);
-      color: #0a0a1f;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: transform 0.3s;
-      margin: 1rem 0;
-    }
+  .generate-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
+  }
 
-    .cta-button:hover {
-      transform: scale(1.05);
-    }
+  .token-contract {
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 2px solid #ffd700;
+    font-size: 16px;
+  }
 
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      padding: 1rem;
-    }
+  .wallet-input {
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid #ffd700;
+    padding: 10px;
+    width: 80%;
+    max-width: 500px;
+    color: #ffd700;
+    font-family: Arial, sans-serif;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 14px;
+  }
 
-    .social-links a {
-      color: #fff;
-      font-size: 2rem;
-      transition: transform 0.3s;
-    }
+  .save-button {
+    background: linear-gradient(45deg, #ff4444, #ff8c00);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin: 10px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+  }
 
-    .social-links a:hover {
-      transform: scale(1.1);
-      color: #00ff88;
-    }
+  .save-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.5);
+  }
 
-    @media (max-width: 768px) {
-      h1 { font-size: 2.5rem; }
-      .timer { font-size: 2rem; }
-      .container { padding-bottom: 2rem; }
-    }
-  </style>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
+  .coming-soon {
+    color: #ff4444;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .copyright {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #888;
+    font-size: 14px;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+  }
+
+  .bottom-social-links {
+    margin: 20px 0;
+    font-size: 14px;
+  }
+
+  .bottom-social-links a {
+    color: #888;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+  }
+
+  .bottom-social-links a:hover {
+    color: #ffd700;
+  }
+
+  .top-contract {
+    background: rgba(0,0,0,0.7);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    border: 1px solid #ffd700;
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  h2, h3, h4 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+  }
+</style>
 </head>
 <body>
-  <div class="hero">
-    <!-- Stars container -->
-    <div class="stars" id="stars"></div>
-
-    <div class="container">
-      <!-- Logo Section -->
-      <div class="logo-container">
-        <!-- Adjust the src to match your file name/path exactly -->
-        <img src="./Revivesafemoon.webp" alt="ReviveSafeMoon Logo" class="logo" />
-      </div>
-
-      <!-- Countdown Timer -->
-      <div class="countdown">
-        <h2>LIMITED TIME EVENT</h2>
-        <div class="timer" id="timer">36:00:00</div>
-        <p>Remaining until event ends</p>
-      </div>
-
-      <!-- Main Content -->
-      <div class="content">
-        <h1>ReviveSafeMoon ($SFM)</h1>
-        <p>
-          Witness the resurrection of one of crypto's most iconic tokens for an exclusive 
-          36-hour trading event!
-        </p>
-
-        <h2>🔶 What is ReviveSafeMoon?</h2>
-        <p>
-          ReviveSafeMoon is a unique, time-limited opportunity to participate in the rebirth 
-          of the legendary SafeMoon token. We're bringing back the excitement, the community, 
-          and the potential – but this time with full transparency and a clear timeline.
-        </p>
-
-        <!-- Features -->
-        <div class="features">
-          <div class="feature-card">
-            <h3>⏳ Limited Time Event</h3>
-            <p>36 hours of exclusive trading opportunity</p>
-          </div>
-          <div class="feature-card">
-            <h3>🚀 Historic Moment</h3>
-            <p>Be part of SafeMoon's legendary comeback</p>
-          </div>
-          <div class="feature-card">
-            <h3>💎 Community Driven</h3>
-            <p>United by the spirit of the original SafeMoon movement</p>
-          </div>
-        </div>
-
-        <h2>Why Join ReviveSafeMoon?</h2>
-        <ul>
-          <li>Experience the nostalgia of the original SafeMoon phenomenon</li>
-          <li>Participate in a transparent, time-bound trading event</li>
-          <li>Join a passionate community of crypto enthusiasts</li>
-        </ul>
-
-        <!-- Call to Action -->
-        <a href="https://pump.fun" class="cta-button">Trade Now</a>
-
-        <!-- Social Links -->
-        <div class="social-links">
-          <a href="https://x.com/riadh747" target="_blank" title="Follow us on X (Twitter)">
-            <i class="fab fa-x-twitter"></i>
-          </a>
-          <a href="https://t.me/revive36" target="_blank" title="Join our Telegram">
-            <i class="fab fa-telegram"></i>
-          </a>
-          <a href="https://x.com/riadh747" target="_blank" title="Follow us on X (Twitter)">
-            <i class="fab fa-x"></i>
-          </a>
-        </div>
-      </div>
-    </div>
+<div class="container">
+  <img src="/Faximus.webp" id="pepe" class="logo pixel-border" alt="Pepe Faximus">
+  
+  <div class="social-links">
+    <a href="https://t.me/pepefaximus" target="_blank">📱 Telegram</a>
+    <a href="https://x.com/riadh747" target="_blank">𝕏 Twitter</a>
   </div>
 
-  <!-- JavaScript for Stars & Timer -->
-  <script>
-    function createStars() {
-      const starsContainer = document.getElementById('stars');
-      for (let i = 0; i < 100; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.width = Math.random() * 3 + 'px';
-        star.style.height = star.style.width;
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        star.style.animationDelay = Math.random() * 1 + 's';
-        starsContainer.appendChild(star);
-      }
+  <div class="top-contract">
+    Token Contract: <span style="color: #ff4444;">COMING SOON</span>
+  </div>
+
+  <button class="generate-button" id="generateButton">GENERATE $FAXIMUS BETA</button>
+
+  <div id="tokenCounter" class="token-counter">$FAXIMUS Generated: 0</div>
+
+  <div class="token-contract">
+    <h3>Save Your Generated Tokens</h3>
+    <input type="text" class="wallet-input" id="walletAddress" placeholder="Enter your wallet address">
+    <button class="save-button" id="saveTokens">Save Tokens</button>
+    <p class="coming-soon">Feature coming soon! 🚀</p>
+  </div>
+
+  <div class="description">
+    <h2>🚀 Project Description for Pepe Faximus ($FAXIMUS)</h2>
+    <p>Pepe Faximus is the ultimate meme coin that blends the hilarious charm of meme culture with the bold confidence of a Roman emperor. Imagine Pepe donning his toga, leading an army of internet degenerates straight into the coliseum of the crypto world, ready to conquer the blockchain with humor and chaos. This isn't just a coin—it's a movement, a rebellion against seriousness.</p>
+
+    <p><strong>🎯 Launching exclusively on <a href="https://pump.fun" target="_blank" style="color: #ff4444; text-decoration: none;">pump.fun</a>!</strong></p>
+
+    <h3>What Makes $FAXIMUS Unique?</h3>
+    <p>🔥 Meme Power to the Maximus: A coin fueled by the audacious spirit of memes, chaos, and internet culture.</p>
+    <p>🤡 Funny, Bold, and Unapologetic: $FAXIMUS doesn't follow the rules—it rewrites them with a mix of satire and audacity.</p>
+    <p>⚔️ Decentralized Degeneracy: Embrace the anarchy of decentralized finance, where every hodler is a gladiator in the arena of crypto chaos.</p>
+  </div>
+
+  <div class="copyright">
+    &copy; Faximus 2024. All rights reserved.
+    <div class="bottom-social-links">
+      Follow us: 
+      <a href="https://t.me/revive36" target="_blank">📱 Telegram</a> | 
+      <a href="https://x.com/riadh747" target="_blank">𝕏 Twitter</a>
+    </div>
+  </div>
+</div>
+
+<script>
+let tokenCount = 0;
+const pepe = document.getElementById('pepe');
+const counter = document.getElementById('tokenCounter');
+const generateButton = document.getElementById('generateButton');
+const saveTokensButton = document.getElementById('saveTokens');
+const walletInput = document.getElementById('walletAddress');
+
+function generateTokens(event) {
+    pepe.classList.add('generating');
+    tokenCount += 0.001;
+    counter.textContent = `$FAXIMUS Generated: ${tokenCount.toFixed(3)}`;
+    
+    createParticles(event);
+    
+    setTimeout(() => {
+        pepe.classList.remove('generating');
+    }, 2000);
+}
+
+saveTokensButton.addEventListener('click', () => {
+    const wallet = walletInput.value.trim();
+    if (wallet) {
+        alert('Token saving feature coming soon! 🚀\nWallet: ' + wallet + '\nTokens: ' + tokenCount.toFixed(3));
+    } else {
+        alert('Please enter a wallet address');
     }
+});
 
-    function updateTimer() {
-      let timeLeft = 36 * 60 * 60 * 1000; // 36 hours in milliseconds
+pepe.addEventListener('click', generateTokens);
+generateButton.addEventListener('click', generateTokens);
 
-      const countdown = setInterval(() => {
-        timeLeft -= 1000;
+function createParticles(e) {
+    const particles = 10;
+    const clickX = e.type === 'click' ? e.pageX : generateButton.getBoundingClientRect().left + generateButton.offsetWidth / 2;
+    const clickY = e.type === 'click' ? e.pageY : generateButton.getBoundingClientRect().top + generateButton.offsetHeight / 2;
 
-        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    for (let i = 0; i < particles; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.left = clickX + 'px';
+        particle.style.top = clickY + 'px';
+        particle.style.width = '10px';
+        particle.style.height = '10px';
+        particle.style.background = '#ffd700';
+        particle.style.borderRadius = '50%';
+        particle.style.pointerEvents = 'none';
+        document.body.appendChild(particle);
 
-        document.getElementById('timer').innerHTML =
-          hours.toString().padStart(2, '0') + ":" +
-          minutes.toString().padStart(2, '0') + ":" +
-          seconds.toString().padStart(2, '0');
+        const angle = (i / particles) * 360;
+        const velocity = 5;
+        const rad = angle * Math.PI / 180;
+        const vx = Math.cos(rad) * velocity;
+        const vy = Math.sin(rad) * velocity;
 
-        if (timeLeft <= 0) {
-          clearInterval(countdown);
-          document.getElementById('timer').innerHTML = "EVENT ENDED";
-        }
-      }, 1000);
+        let posX = clickX;
+        let posY = clickY;
+
+        const animate = () => {
+            posX += vx;
+            posY += vy;
+            particle.style.left = posX + 'px';
+            particle.style.top = posY + 'px';
+            particle.style.opacity = parseFloat(particle.style.opacity || 1) - 0.02;
+
+            if (particle.style.opacity > 0) {
+                requestAnimationFrame(animate);
+            } else {
+                particle.remove();
+            }
+        };
+
+        requestAnimationFrame(animate);
     }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      createStars();
-      updateTimer();
-    });
-  </script>
-</body>
-</html>
+}
+</script>
+</body></html>
