@@ -1,248 +1,282 @@
 <html><head><base href="/">
+<title>ReviveSafeMoon - The 36 Hour Revival Event</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+    font-family: 'Space Grotesk', sans-serif;
+  }
 
-body {
-    background: linear-gradient(135deg, #2b3a55, #1a1f2e);
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
+  body {
+    background: #0a0a1f;
+    color: #fff;
+    line-height: 1.6;
+  }
+
+  .hero {
     min-height: 100vh;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-}
-
-.game-container {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px 0;
+    background: linear-gradient(45deg, #0a0a1f, #1a1a3f);
+    padding: 2rem;
     position: relative;
-    height: 400px;
     overflow: hidden;
-}
+  }
 
-.character {
-    width: 100px;
-    height: 100px;
+  .stars {
     position: absolute;
-    transition: transform 0.3s;
-}
-
-.enemy {
-    width: 80px;
-    height: 100px;
-    position: absolute;
-    right: 50px;
-    top: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.enemy-body {
-    width: 80px;
-    height: 80px;
-    background: #8B4513;
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-}
-
-.enemy-head {
-    width: 40px;
-    height: 40px;
-    background: #D2691E;
-    border-radius: 50%;
-    position: relative;
-    top: -20px;
-}
-
-.enemy-helmet {
-    width: 50px;
-    height: 25px;
-    background: #A0522D;
-    border-radius: 50% 50% 0 0;
-    position: absolute;
-    top: -15px;
-    left: -5px;
-}
-
-.sword {
-    position: absolute;
-    width: 60px;
-    height: 8px;
-    display: none;
-    transform-origin: left center;
-}
-
-.sword-blade {
-    width: 45px;
-    height: 8px;
-    background: linear-gradient(90deg, #C0C0C0, #E8E8E8);
-    clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%);
-}
-
-.sword-handle {
-    width: 15px;
-    height: 16px;
-    background: #8B4513;
-    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
     left: 0;
-    top: -4px;
-    border-radius: 2px;
-}
+    pointer-events: none;
+  }
 
-.sword-guard {
-    width: 24px;
-    height: 4px;
-    background: #DAA520;
+  .star {
     position: absolute;
-    left: 12px;
-    top: 2px;
-}
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 1s infinite;
+  }
 
-.social-links {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
 
-.social-btn {
-    padding: 10px 20px;
-    border-radius: 25px;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-container {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .logo {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .countdown {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2rem 0;
+    backdrop-filter: blur(10px);
+  }
+
+  .timer {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00ff88;
+  }
+
+  .content {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    backdrop-filter: blur(5px);
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(45deg, #00ff88, #00ccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    color: #00ff88;
+    margin: 1.5rem 0;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #00ff88, #00ccff);
+    color: #0a0a1f;
     text-decoration: none;
-    color: white;
+    border-radius: 30px;
     font-weight: bold;
     transition: transform 0.3s;
+    margin: 1rem 0;
+  }
+
+  .cta-button:hover {
+    transform: scale(1.05);
+  }
+
+  .social-links {
     display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+  }
 
-.telegram {
-    background: #0088cc;
-}
+  .social-links a {
+    color: #fff;
+    font-size: 2rem;
+    transition: transform 0.3s;
+  }
 
-.twitter {
-    background: #1DA1F2;
-}
+  .social-links a:hover {
+    transform: scale(1.1);
+    color: #00ff88;
+  }
 
-.social-btn:hover {
-    transform: scale(1.05);
-}
+  @media (max-width: 768px) {
+    h1 { 
+      font-size: 2.5rem; 
+    }
+    
+    .timer { 
+      font-size: 2rem; 
+    }
 
-.score {
-    font-size: 24px;
-    margin: 20px 0;
-}
-
-.attack-btn {
-    padding: 15px 30px;
-    font-size: 18px;
-    background: #ff6b6b;
-    border: none;
-    border-radius: 25px;
-    color: white;
-    cursor: pointer;
-    margin: 20px 0;
-    transition: transform 0.2s;
-}
-
-.attack-btn:hover {
-    transform: scale(1.05);
-}
+    .container {
+      padding-bottom: 2rem;
+    }
+  }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-<div class="container">
-    <h1>$FAXIMUS Game</h1>
-    <p class="score">Score: <span id="score">0</span></p>
-    <div class="game-container">
-        <img src="./Faximus.webp" id="faximus" class="character" style="left: 50px; top: 150px;">
-        <div class="enemy" id="enemy">
-            <div class="enemy-helmet"></div>
-            <div class="enemy-head"></div>
-            <div class="enemy-body"></div>
-        </div>
-        <div class="sword" id="sword">
-            <div class="sword-handle"></div>
-            <div class="sword-guard"></div>
-            <div class="sword-blade"></div>
-        </div>
+
+<div class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="container">
+    <div class="logo-container">
+      <img src="Revivesafemoon.webp" alt="ReviveSafeMoon Logo" class="logo">
     </div>
-    <button class="attack-btn" onclick="attack()">Attack!</button>
-    
-    <div class="social-links">
-        <a href="https://t.me/faximus" class="social-btn telegram">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.175 1.933-.925 6.612-1.308 8.774-.16.897-.477 1.198-.785 1.227-.667.064-1.176-.441-1.823-.866-.998-.659-1.565-1.068-2.528-1.711-1.122-.747-.395-1.158.245-1.828.167-.175 3.086-2.827 3.142-3.069.007-.03.013-.147-.055-.209-.068-.062-.168-.041-.241-.024-.103.024-1.743 1.107-4.921 3.248-.466.319-.89.475-1.272.468-.419-.008-1.224-.24-1.82-.438-.734-.243-1.315-.372-1.262-.785.027-.218.325-.437.892-.657 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.119.099.152.23.169.331a1.42 1.42 0 0 1 .013.418z"/>
-            </svg>
-            Join Telegram
-        </a>
-        <a href="https://twitter.com/faximus_token" class="social-btn twitter">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"/>
-            </svg>
-            Follow on Twitter
-        </a>
+
+    <div class="countdown">
+      <h2>LIMITED TIME EVENT</h2>
+      <div class="timer" id="timer">36:00:00</div>
+      <p>Remaining until event ends</p>
     </div>
+
+    <div class="content">
+      <h1>ReviveSafeMoon ($SFM)</h1>
+      <p>Witness the resurrection of one of crypto's most iconic tokens for an exclusive 36-hour trading event!</p>
+
+      <h2>🔶 What is ReviveSafeMoon?</h2>
+      <p>ReviveSafeMoon is a unique, time-limited opportunity to participate in the rebirth of the legendary SafeMoon token. We're bringing back the excitement, the community, and the potential - but this time with full transparency and a clear timeline.</p>
+
+      <div class="features">
+        <div class="feature-card">
+          <h3>⏳ Limited Time Event</h3>
+          <p>36 hours of exclusive trading opportunity</p>
+        </div>
+        <div class="feature-card">
+          <h3>🚀 Historic Moment</h3>
+          <p>Be part of SafeMoon's legendary comeback</p>
+        </div>
+        <div class="feature-card">
+          <h3>💎 Community Driven</h3>
+          <p>United by the spirit of the original SafeMoon movement</p>
+        </div>
+      </div>
+
+      <h2>Why Join ReviveSafeMoon?</h2>
+      <ul>
+        <li>Experience the nostalgia of the original SafeMoon phenomenon</li>
+        <li>Participate in a transparent, time-bound trading event</li>
+        <li>Join a passionate community of crypto enthusiasts</li>
+      </ul>
+
+      <a href="https://pump.fun" class="cta-button">Trade Now</a>
+
+      <div class="social-links">
+        <a href="https://x.com/riadh747" target="_blank" title="Follow us on X (Twitter)">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://t.me/revive36" target="_blank" title="Join our Telegram">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://x.com/riadh747" target="_blank" title="Follow us on X (Twitter)">
+          <i class="fab fa-x"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-let score = 0;
-let isAttacking = false;
-
-function attack() {
-    if (isAttacking) return;
-    isAttacking = true;
-    
-    const faximus = document.getElementById('faximus');
-    const sword = document.getElementById('sword');
-    const enemy = document.getElementById('enemy');
-    
-    // Show and position sword
-    sword.style.display = 'block';
-    sword.style.left = '150px';
-    sword.style.top = '195px';
-    
-    // Move Faximus
-    faximus.style.transform = 'translateX(50px)';
-    
-    // Animate sword
-    setTimeout(() => {
-        sword.style.transform = 'rotate(45deg)';
-        enemy.style.opacity = '0.7';
-        enemy.style.transform = 'translateX(10px)';
-        score += 10;
-        document.getElementById('score').textContent = score;
-        
-        // Reset positions
-        setTimeout(() => {
-            faximus.style.transform = 'translateX(0)';
-            sword.style.display = 'none';
-            sword.style.transform = 'rotate(0deg)';
-            enemy.style.opacity = '1';
-            enemy.style.transform = 'translateX(0)';
-            isAttacking = false;
-        }, 500);
-    }, 300);
+function createStars() {
+  const starsContainer = document.getElementById('stars');
+  for(let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.width = Math.random() * 3 + 'px';
+    star.style.height = star.style.width;
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 1 + 's';
+    starsContainer.appendChild(star);
+  }
 }
 
-// Make enemy bounce slightly
-setInterval(() => {
-    const enemy = document.getElementById('enemy');
-    enemy.style.transform = 'translateY(-5px)';
-    setTimeout(() => {
-        enemy.style.transform = 'translateY(0)';
-    }, 500);
-}, 1000);
+function updateTimer() {
+  let timeLeft = 36 * 60 * 60 * 1000;
+  
+  const countdown = setInterval(() => {
+    timeLeft -= 1000;
+    
+    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+    document.getElementById('timer').innerHTML = 
+      hours.toString().padStart(2, '0') + ":" +
+      minutes.toString().padStart(2, '0') + ":" +
+      seconds.toString().padStart(2, '0');
+    
+    if (timeLeft <= 0) {
+      clearInterval(countdown);
+      document.getElementById('timer').innerHTML = "EVENT ENDED";
+    }
+  }, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  createStars();
+  updateTimer();
+});
 </script>
+
 </body></html>
