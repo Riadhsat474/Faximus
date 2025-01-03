@@ -88,7 +88,7 @@
       font-weight: bold;
       cursor: pointer;
       border-radius: 10px;
-      margin: 20px 0;
+      margin: 20px 10px 20px 0; /* Added right margin for spacing */
       transition: all 0.3s ease;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
       box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
@@ -123,6 +123,53 @@
     .generate-button:active {
       transform: scale(0.95);
       box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
+    }
+
+    /* ----- BUY BUTTON ----- */
+    .buy-button {
+      background: linear-gradient(45deg, #00bfff, #1e90ff);
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 10px;
+      margin: 20px 0;
+      transition: all 0.3s ease;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+      border: 2px solid #1e90ff;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+    .buy-button:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: 0.5s;
+    }
+    .buy-button:hover {
+      background: linear-gradient(45deg, #1e90ff, #00bfff);
+      transform: scale(1.05);
+      box-shadow: 0 7px 20px rgba(30, 144, 255, 0.5);
+    }
+    .buy-button:hover:before {
+      left: 100%;
+    }
+    .buy-button:active {
+      transform: scale(0.95);
+      box-shadow: 0 3px 10px rgba(30, 144, 255, 0.3);
     }
 
     /* ----- TOKEN COUNTER ----- */
@@ -171,12 +218,7 @@
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(255, 68, 68, 0.5);
     }
-    .coming-soon {
-      color: #ff4444;
-      font-size: 14px;
-      margin-top: 10px;
-      font-weight: bold;
-    }
+    /* Removed the .coming-soon class as it's no longer needed */
 
     /* ----- DESCRIPTION SECTION ----- */
     .description {
@@ -238,9 +280,9 @@
         width: 200px;
         height: 200px;
       }
-      .generate-button {
+      .generate-button, .buy-button {
         padding: 12px 20px;
-        margin: 15px 0;
+        margin: 15px 5px 15px 0; /* Adjusted margins for spacing */
         font-size: 14px;
       }
       .social-links a {
@@ -271,11 +313,22 @@
 
     <!-- TOP CONTRACT SECTION -->
     <div class="top-contract">
-      Token Contract: <span style="color: #ff4444;">COMING SOON</span>
+      Token Contract: 
+      <a href="https://solscan.io/token/6FPY8JaRXzmGLtQD9z8586nCR1JLDxe9r1wqasRhewoC" 
+         target="_blank" 
+         style="color: #ff4444; text-decoration: none;">
+        6FPY8JaRXzmGLtQD9z8586nCR1JLDxe9r1wqasRhewoC
+      </a>
     </div>
 
     <!-- GENERATE BUTTON & COUNTER -->
     <button class="generate-button" id="generateButton">GENERATE $FAXIMUS BETA</button>
+    <!-- NEW BUY BUTTON -->
+    <a href="https://pump.fun/coin/6FPY8JaRXzmGLtQD9z8586nCR1JLDxe9r1wqasRhewoC" 
+       target="_blank" 
+       class="buy-button">
+      BUY $FAXIMUS NOW
+    </a>
     <div id="tokenCounter" class="token-counter">$FAXIMUS Generated: 0</div>
 
     <!-- TOKEN CONTRACT SECTION -->
@@ -293,7 +346,7 @@
           pattern="^[1-9A-HJ-NP-Za-km-z]{43,44}$" 
           title="Solana wallet address must be exactly 43 or 44 Base58 characters long">
         <button type="submit" class="save-button" id="saveTokens">Save Tokens</button>
-        <p class="coming-soon">Feature coming soon! 🚀</p>
+        <!-- Removed the coming-soon paragraph -->
       </form>
       <!-- Form Ends Here -->
     </div>
