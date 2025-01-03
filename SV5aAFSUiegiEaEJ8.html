@@ -1,0 +1,282 @@
+<html><head><base href="/">
+<title>ReviveSafeMoon - The 36 Hour Revival Event</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  body {
+    background: #0a0a1f;
+    color: #fff;
+    line-height: 1.6;
+  }
+
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(45deg, #0a0a1f, #1a1a3f);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 1s infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-container {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .logo {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .countdown {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2rem 0;
+    backdrop-filter: blur(10px);
+  }
+
+  .timer {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00ff88;
+  }
+
+  .content {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    backdrop-filter: blur(5px);
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(45deg, #00ff88, #00ccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    color: #00ff88;
+    margin: 1.5rem 0;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #00ff88, #00ccff);
+    color: #0a0a1f;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform 0.3s;
+    margin: 1rem 0;
+  }
+
+  .cta-button:hover {
+    transform: scale(1.05);
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+
+  .social-links a {
+    color: #fff;
+    font-size: 2rem;
+    transition: transform 0.3s;
+  }
+
+  .social-links a:hover {
+    transform: scale(1.1);
+    color: #00ff88;
+  }
+
+  @media (max-width: 768px) {
+    h1 { 
+      font-size: 2.5rem; 
+    }
+    
+    .timer { 
+      font-size: 2rem; 
+    }
+
+    .container {
+      padding-bottom: 2rem;
+    }
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<div class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="container">
+    <div class="logo-container">
+      <img src="Revivesafemoon.webp" alt="ReviveSafeMoon Logo" class="logo">
+    </div>
+
+    <div class="countdown">
+      <h2>LIMITED TIME EVENT</h2>
+      <div class="timer" id="timer">36:00:00</div>
+      <p>Remaining until event ends</p>
+    </div>
+
+    <div class="content">
+      <h1>ReviveSafeMoon ($SFM)</h1>
+      <p>Witness the resurrection of one of crypto's most iconic tokens for an exclusive 36-hour trading event!</p>
+
+      <h2>🔶 What is ReviveSafeMoon?</h2>
+      <p>ReviveSafeMoon is a unique, time-limited opportunity to participate in the rebirth of the legendary SafeMoon token. We're bringing back the excitement, the community, and the potential - but this time with full transparency and a clear timeline.</p>
+
+      <div class="features">
+        <div class="feature-card">
+          <h3>⏳ Limited Time Event</h3>
+          <p>36 hours of exclusive trading opportunity</p>
+        </div>
+        <div class="feature-card">
+          <h3>🚀 Historic Moment</h3>
+          <p>Be part of SafeMoon's legendary comeback</p>
+        </div>
+        <div class="feature-card">
+          <h3>💎 Community Driven</h3>
+          <p>United by the spirit of the original SafeMoon movement</p>
+        </div>
+      </div>
+
+      <h2>Why Join ReviveSafeMoon?</h2>
+      <ul>
+        <li>Experience the nostalgia of the original SafeMoon phenomenon</li>
+        <li>Participate in a transparent, time-bound trading event</li>
+        <li>Join a passionate community of crypto enthusiasts</li>
+      </ul>
+
+      <a href="https://pump.fun" class="cta-button">Trade Now</a>
+
+      <div class="social-links">
+        <a href="https://x.com/riadh747" target="_blank" title="Follow us on X (Twitter)">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://t.me/revive36" target="_blank" title="Join our Telegram">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://x.com/riadh747" target="_blank" title="Follow us on X (Twitter)">
+          <i class="fab fa-x"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function createStars() {
+  const starsContainer = document.getElementById('stars');
+  for(let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.width = Math.random() * 3 + 'px';
+    star.style.height = star.style.width;
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 1 + 's';
+    starsContainer.appendChild(star);
+  }
+}
+
+function updateTimer() {
+  let timeLeft = 36 * 60 * 60 * 1000;
+  
+  const countdown = setInterval(() => {
+    timeLeft -= 1000;
+    
+    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+    document.getElementById('timer').innerHTML = 
+      hours.toString().padStart(2, '0') + ":" +
+      minutes.toString().padStart(2, '0') + ":" +
+      seconds.toString().padStart(2, '0');
+    
+    if (timeLeft <= 0) {
+      clearInterval(countdown);
+      document.getElementById('timer').innerHTML = "EVENT ENDED";
+    }
+  }, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  createStars();
+  updateTimer();
+});
+</script>
+
+</body></html>
